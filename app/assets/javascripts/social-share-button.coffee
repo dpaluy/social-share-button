@@ -6,21 +6,22 @@ window.SocialShareButton =
   share : (el) ->
     site = $(el).data('site')
     title = encodeURIComponent($(el).parent().data('title') || '')
+    tweet = encodeURIComponent($(el).parent().data('tweet') || '')
     img = encodeURIComponent($(el).parent().data("img") || '')
     url = encodeURIComponent($(el).parent().data("url") || '')
     if url.length == 0
       url = encodeURIComponent(location.href)
     switch site
       when "email"
-        location.href = "mailto:?to=&subject=#{title}&body=#{url}"
+        SocialShareButton.openUrl("mailto:?to=&subject=#{title}&body=#{url}")
       when "weibo"
         SocialShareButton.openUrl("http://service.weibo.com/share/share.php?url=#{url}&type=3&pic=#{img}&title=#{title}")
       when "twitter"
-        SocialShareButton.openUrl("https://twitter.com/home?status=#{title}: #{url}")
+        SocialShareButton.openUrl("https://twitter.com/intent/tweet?source=webclient&text=#{tweet}")
       when "douban"
         SocialShareButton.openUrl("http://shuo.douban.com/!service/share?href=#{url}&name=#{title}&image=#{img}")
       when "facebook"
-        SocialShareButton.openUrl("http://www.facebook.com/sharer.php?u=#{url}")
+        SocialShareButton.openUrl("https://www.facebook.com/sharer/sharer.php?u=#{url}")
       when "qq"
         SocialShareButton.openUrl("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=#{url}&title=#{title}&pics=#{img}")
       when "tqq"
