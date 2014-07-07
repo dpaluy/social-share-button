@@ -4,11 +4,13 @@ window.SocialShareButton =
     false
 
   share : (el) ->
-    site = $(el).data('site')
-    title = encodeURIComponent($(el).parent().data('title') || '')
-    tweet = encodeURIComponent($(el).parent().data('tweet') || '')
-    img = encodeURIComponent($(el).parent().data("img") || '')
-    url = encodeURIComponent($(el).parent().data("url") || '')
+    site    = $(el).data('site')
+    title   = encodeURIComponent($(el).parent().data('title') || '')
+    tweet   = encodeURIComponent($(el).parent().data('tweet') || '')
+    img     = encodeURIComponent($(el).parent().data("img") || '')
+    url     = encodeURIComponent($(el).parent().data("url") || '')
+    source  = encodeURIComponent($(el).parent().data("source") || '')
+    summary = encodeURIComponent($(el).parent().data("summary") || '')
     if url.length == 0
       url = encodeURIComponent(location.href)
     switch site
@@ -19,13 +21,13 @@ window.SocialShareButton =
       when "facebook"
         SocialShareButton.openUrl("https://www.facebook.com/sharer/sharer.php?u=#{url}")
       when "linkedin"
-        SocialShareButton.openUrl("https://www.linkedin.com/shareArticle?url=#{url}&source=#{source}&title=#{title}&mini=true")
+        SocialShareButton.openUrl("https://www.linkedin.com/shareArticle?summary=#{summary}&url=#{url}&source=#{source}&title=#{title}&mini=true")
       when "google_plus"
         SocialShareButton.openUrl("https://plus.google.com/share?url=#{url}")
       when "google_bookmark"
         SocialShareButton.openUrl("https://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=#{url}&title=#{title}")
       when "pinterest"
-        SocialShareButton.openUrl("http://www.pinterest.com/pin/create/button/?url=#{url}&media=#{img}&description=#{title}")
+        SocialShareButton.openUrl("http://www.pinterest.com/pin/create/button/?url=#{url}&media=#{img}&description=#{summary}")
       when "tumblr"
         get_tumblr_extra = (param) ->
           cutom_data = $(el).attr("data-#{param}")
