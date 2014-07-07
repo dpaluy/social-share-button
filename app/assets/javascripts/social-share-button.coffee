@@ -14,32 +14,16 @@ window.SocialShareButton =
     switch site
       when "email"
         SocialShareButton.openUrl("mailto:?to=&subject=#{title}&body=#{url}")
-      when "weibo"
-        SocialShareButton.openUrl("http://service.weibo.com/share/share.php?url=#{url}&type=3&pic=#{img}&title=#{title}")
       when "twitter"
         SocialShareButton.openUrl("https://twitter.com/intent/tweet?source=webclient&text=#{tweet}")
-      when "douban"
-        SocialShareButton.openUrl("http://shuo.douban.com/!service/share?href=#{url}&name=#{title}&image=#{img}")
       when "facebook"
         SocialShareButton.openUrl("https://www.facebook.com/sharer/sharer.php?u=#{url}")
-      when "qq"
-        SocialShareButton.openUrl("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=#{url}&title=#{title}&pics=#{img}")
-      when "tqq"
-        SocialShareButton.openUrl("http://share.v.t.qq.com/index.php?c=share&a=index&url=#{url}&title=#{title}&pic=#{img}")
-      when "baidu"
-        SocialShareButton.openUrl("http://hi.baidu.com/pub/show/share?url=#{url}&title=#{title}&content=")
-      when "kaixin001"
-        SocialShareButton.openUrl("http://www.kaixin001.com/rest/records.php?url=#{url}&content=#{title}&style=11&pic=#{img}")
       when "linkedin"
         SocialShareButton.openUrl("https://www.linkedin.com/shareArticle?url=#{url}&source=#{source}&title=#{title}&mini=true")
       when "google_plus"
         SocialShareButton.openUrl("https://plus.google.com/share?url=#{url}")
       when "google_bookmark"
         SocialShareButton.openUrl("https://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=#{url}&title=#{title}")
-      when "delicious"
-        SocialShareButton.openUrl("http://www.delicious.com/save?url=#{url}&title=#{title}&jump=yes&pic=#{img}")
-      when "plurk"
-        SocialShareButton.openUrl("http://www.plurk.com/?status=#{title}: #{url}&qualifier=shares")
       when "pinterest"
         SocialShareButton.openUrl("http://www.pinterest.com/pin/create/button/?url=#{url}&media=#{img}&description=#{title}")
       when "tumblr"
